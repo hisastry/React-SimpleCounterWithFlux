@@ -10,9 +10,9 @@ var BUILD_DIR = path.resolve(__dirname+"/build/");
 module.exports = {
     entry: APP_DIR + '/index.jsx',
     output: {
-      path: BUILD_DIR,
-      filename: 'bundle.js',
-      publicPath: '/'
+        path: BUILD_DIR,
+        filename: 'bundle.js',
+        publicPath: '/'
     },
     devtool: 'source-map',
     devServer: {
@@ -26,8 +26,11 @@ module.exports = {
             include: APP_DIR,
             loader: 'babel-loader',
             query: {
-                presets: ['es2015', 'react']
+                presets: ['react']
             }
         }]
+    },
+    resolve: {
+        modules: [path.resolve(__dirname, "app"),"node_modules"]
     }
 }
